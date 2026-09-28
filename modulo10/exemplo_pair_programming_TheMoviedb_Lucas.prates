@@ -1,0 +1,11 @@
+import requests
+
+chave_api = "SUA_CHAVE_API_AQUI"
+url = f"https://api.themoviedb.org/3/movie/popular?api_key={chave_api}&language=pt-BR"
+
+resposta = requests.get(url)
+dados = resposta.json()
+
+for filme in dados["results"][:5]:
+    print("Filme:", filme["title"])
+    print("Popularidade:", filme["popularity"])
